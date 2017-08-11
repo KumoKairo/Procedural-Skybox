@@ -59,7 +59,7 @@ Shader "Kumo Kairo/Gradient Moon Skybox"
         float p2 = 1.0f - p1;
 
         half3 mie = calcSunSpot(_SunPosition.xyz, i.texcoord.xyz) * _SunColor;
-        half3 col = _GroundColor * p1;// +mie * p2;
+        half3 col = _GroundColor * p1 + mie * p2;
         col += _SkyTint * p2;
 
         return half4(col, 1.0);
